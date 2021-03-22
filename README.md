@@ -1,2 +1,3 @@
 # fs-open-2021
-exercises of the full stack open 2021 course, in this repository the different stages are divided into directories
+Hello, in this repository you can find the exercises separated by directories from the fs-open-2021 course.
+Facundo Suarez.
