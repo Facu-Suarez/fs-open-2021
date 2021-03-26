@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Part3 = (part3) => {
-    console.log(part3)
+const Part3 = (props) => {
+    
     return(
         <div>
-            <p>{part3.name}</p>
-            <p>{part3.exercises3}</p>
+            <p>{props.part[2].name}</p>
+            <p>{props.part[2].exercises}</p>
         </div>
     )
 }
