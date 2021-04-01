@@ -2,35 +2,60 @@ import React,{useState} from 'react'
 import ReactDOM from 'react-dom'
 import Button from './component/Button'
 import Statistics from './component/Statistics'
-import './index.css'
 
-const App = () => {
-  const [good, setGood] = useState(0)
-  const [neutral, setNeutral] = useState(0)
-  const [bad, setBad] = useState(0)
 
-  const handleGood= () => {setGood(good + 1)};
-  const handleNeutral= () => {setNeutral(neutral + 1)};
-  const handleBad= () => {setBad(bad + 1)};
 
-  const all = () => {
-    const count = ()  =>{
-      return(good+neutral+bad)
+const App = (props) => {
+
+    const [a,setA] = useState({ 
+      good: 0,
+      neutral: 0,
+      bad: 0,
+      all: 0
+    })
+  
+    const handleClickGood = () => {
+      const newClick = {
+        good: a.good + 1,
+        neutral: a.neutral,
+        bad: a.bad,
+        all: a.all + 1
+      }
+      setA(newClick)
     }
-    console.log(count)
-  }
+    const handleClickNeutral = () => {
+      const newClick = {
+        good: a.good,
+        neutral: a.neutral + 1,
+        bad: a.bad,
+        all: a.all + 1
+      }
+      setA(newClick)
+    }
+    const handleClickBad = () => {
+      const newClick = {
+        good: a.good,
+        neutral: a.neutral,
+        bad: a.bad + 1,
+        all: a.all + 1
+      }
+      setA(newClick)
+    }
+    
 
   return (
     <div>
       <h1>Give feedback</h1>
-        <Button handleClick={handleGood} text='Good'/>
-        <Button handleClick={handleNeutral} text='Neutral'/>
-        <Button handleClick={handleBad} text='Bad'/>
+        <Button handleClick={handleClickGood} text='Good'/>
+        <Button handleClick={handleClickNeutral} text='Neutral'/>
+        <Button handleClick={handleClickBad} text='Bad'/>
       <h3>Statistics</h3>
-        <Statistics text='Good: ' value={good}/>
-        <Statistics text='Neutral: ' value={neutral}/>
-        <Statistics text='Bad: ' value={bad}/>
-        <Statistics text='All: ' value={all}/>
+        <Statistics value={a.good} text='Good: ' />
+        <Statistics value={a.neutral} text='Neutral: ' />
+        <Statistics value={a.bad} text='Bad: ' />
+        <Statistics value={props.percG} text='Percentage Good: ' />
+        <Statistics value={props.percB} text='Percentage Bad: ' />
+       
     </div>
   )
 }
@@ -45,3 +70,4 @@ ReactDOM.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
