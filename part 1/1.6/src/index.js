@@ -5,7 +5,7 @@ import Statistics from './component/Statistics'
 
 
 
-const App = (props) => {
+const App = () => {
 
     const [a,setA] = useState({ 
       good: 0,
@@ -42,6 +42,15 @@ const App = (props) => {
       setA(newClick)
     }
     
+    const res = a.all - a.neutral;
+
+    const percG = a.good / res * 100;
+    const roundG = percG.toFixed(0) + '%';
+    
+
+    const percB = (a.good - a.bad) / a.all;
+    const roundB =  percB.toFixed(2) ;
+    
 
   return (
     <div>
@@ -53,8 +62,10 @@ const App = (props) => {
         <Statistics value={a.good} text='Good: ' />
         <Statistics value={a.neutral} text='Neutral: ' />
         <Statistics value={a.bad} text='Bad: ' />
-        <Statistics value={props.percG} text='Percentage Good: ' />
-        <Statistics value={props.percB} text='Percentage Bad: ' />
+        <Statistics value={a.all} text='All: ' />
+      <h3>Percentage</h3>
+        <Statistics value={roundG} text='Positive: ' />
+        <Statistics value={roundB} text='Average: ' />
        
     </div>
   )
