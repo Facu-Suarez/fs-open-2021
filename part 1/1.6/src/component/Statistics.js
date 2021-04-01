@@ -15,7 +15,7 @@ const Statistics = ({text, value}) =>{
         </div>
     )
 
-    
+     
 
 }
 

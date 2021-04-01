@@ -6,6 +6,6 @@ const Botton = ({handleClick, text}) => {
                 {text}
             </button> 
     )
-}
+} 
 
 export default Botton

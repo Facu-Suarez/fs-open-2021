@@ -46,7 +46,7 @@ const App = () => {
 
     const percG = a.good / res * 100;
     const roundG = percG.toFixed(0) + '%';
-    
+     
 
     const percB = (a.good - a.bad) / a.all;
     const roundB =  percB.toFixed(2) ;
