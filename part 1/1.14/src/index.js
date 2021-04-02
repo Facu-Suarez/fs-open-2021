@@ -4,34 +4,42 @@ import ReactDOM from 'react-dom'
 
 //initial state
 const initState = 0;
-//const initVote = 0;
+const initVote = 0;
+const initCount = [0,0,0,0,0,0];
 
 const App = (props) => {
   const [selected, setSelected] = useState(initState)
-  const [vote, setVote] = useState(Number)
+  const [vote, setVote] = useState(initVote)
+  const [count, setCount] = useState(initCount)
 
   //ramdom num
   function ramdom(max, min){
     return Math.floor(Math.random() * (max - min + 1 ) + min )
   }
   //control anecdote
-  const handleClick =()=>(setSelected(selected + ramdom(5,0)));
+  const handleClick =()=>{
+    return( setSelected(selected + ramdom(3,0)),
+    setVote(initVote)
+    )
+  }
+  
   console.log(selected)
   //reset
   if(selected > 5){
-    return( () => setSelected(initState),
-    setSelected(0)
+    return( 
+      () => setSelected(initState),
+      setSelected(0)
     )
   }
-
-  // control button
+  
   const handleVote =()=>{
-    (setVote(vote + 1))
-    count.fill(+1,anecdotes[selected])
+    return (
+      setVote(vote + 1),
+      setCount(count.fill(vote + 1 ,[selected], [selected + 1]))
+    ) 
   }
-  // save vote
-  const count = [0, 0, 0, 0, 0, 0]
   console.log(count)
+  
 
   return (
     <div>
