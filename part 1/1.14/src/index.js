@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom'
 
 //initial state
 const initState = 0;
+//const initVote = 0;
 
 const App = (props) => {
   const [selected, setSelected] = useState(initState)
@@ -22,15 +23,20 @@ const App = (props) => {
     setSelected(0)
     )
   }
+
   // control button
-  const handleVote =()=>(setVote(vote + 1))
-  // condition vote
-  
+  const handleVote =()=>{
+    (setVote(vote + 1))
+    count.fill(+1,anecdotes[selected])
+  }
+  // save vote
+  const count = [0, 0, 0, 0, 0, 0]
+  console.log(count)
 
   return (
     <div>
       <h3>{props.anecdotes[selected]}</h3>
-      <h4>{vote}</h4>
+      <h4> has {vote} votes</h4>
       <div>
         <button onClick={handleClick}>
           Next anecdote
