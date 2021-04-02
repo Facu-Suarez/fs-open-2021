@@ -16,22 +16,21 @@ const App = (props) => {
   function ramdom(max, min){
     return Math.floor(Math.random() * (max - min + 1 ) + min )
   }
-  //control anecdote
+  //switch anecdote
   const handleClick =()=>{
-    return( setSelected(selected + ramdom(3,0)),
+    return( setSelected(selected + ramdom(2,0)),
     setVote(initVote)
     )
   }
-  
   console.log(selected)
-  //reset
+  //reset anecdote
   if(selected > 5){
     return( 
       () => setSelected(initState),
       setSelected(0)
     )
   }
-  
+  //vote and count
   const handleVote =()=>{
     return (
       setVote(vote + 1),
@@ -39,11 +38,18 @@ const App = (props) => {
     ) 
   }
   console.log(count)
+
+  //num max of vote
+  let max = Math.max(...count);
+  
+  //index of anecdotes max
+  let index = count.findIndex((m)=> m === max);
   
 
   return (
     <div>
-      <h3>{props.anecdotes[selected]}</h3>
+      <h2>Anecdote of the day</h2>
+      <h4>{props.anecdotes[selected]}</h4>
       <h4> has {vote} votes</h4>
       <div>
         <button onClick={handleClick}>
@@ -52,6 +58,11 @@ const App = (props) => {
         <button onClick={handleVote}>
           Vote
         </button>
+      </div>
+      <div>
+        <h3>Anecdore with most votes</h3>
+        <p>{props.anecdotes[index]} </p> 
+        <p> Has {max} votes</p>
       </div>
     </div>
   )
