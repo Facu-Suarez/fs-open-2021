@@ -6,7 +6,7 @@ const Statistics = ({text, value}) =>{
         return(
             <div>
                 <h4>No feedback give</h4>
-            </div>
+            </div> 
         )
     }
     return(

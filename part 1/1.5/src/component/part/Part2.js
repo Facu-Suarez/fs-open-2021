@@ -9,5 +9,5 @@ const Part2 = (props) => {
         </div>
     )
 }
-
+ 
 export default Part2;

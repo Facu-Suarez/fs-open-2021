@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom"; 
 import Content from "./component/Content";
 import Header from "./component/Header";
 import Total from "./component/Total";

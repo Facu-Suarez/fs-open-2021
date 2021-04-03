@@ -7,7 +7,7 @@ import Part3 from './part/Part3';
 
 const Content = (props) => {
     console.log(props)
-    return (
+    return ( 
         <div>
             <Part1 part={props.part}/>
             <Part2 part={props.part}/>

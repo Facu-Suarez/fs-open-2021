@@ -10,4 +10,4 @@ const Part3 = (props) => {
     )
 }
 
-export default Part3;
+export default Part3; 

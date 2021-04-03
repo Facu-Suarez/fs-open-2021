@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom'
 const initState = 0;
 const initVote = 0;
 const initCount = [0,0,0,0,0,0];
-
+ 
 const App = (props) => {
   const [selected, setSelected] = useState(initState)
   const [vote, setVote] = useState(initVote)
