@@ -16,7 +16,7 @@ const App = (props) => {
   function ramdom(max, min){
     return Math.floor(Math.random() * (max - min + 1 ) + min )
   }
-  //switch anecdote
+  //switch anecdote  
   const handleClick =()=>{
     return( setSelected(selected + ramdom(2,0)),
     setVote(initVote)
