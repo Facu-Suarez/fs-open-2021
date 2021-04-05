@@ -5,13 +5,14 @@ import Part3 from './part/Part3';
 
 
 
-const Content = (props) => {
-    console.log(props)
+const Content = ({course}) => {
+    //console.log(course)
     return ( 
         <div>
-            <Part1 part={props.part}/>
-            <Part2 part={props.part}/>
-            <Part3 part={props.part}/>
+            <h2>{course[0].name}</h2>
+            <Part1 course={course[0]}/>
+            <Part2 course={course[0]}/>
+            <Part3 course={course[0]}/>
         </div>
     )
 };

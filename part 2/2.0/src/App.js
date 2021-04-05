@@ -1,9 +1,10 @@
 import React from "react";
+import Course from "./Course";
 
 function App() {
   return (
-    <div className="App">
-      
+    <div>
+      <Course/>
     </div>
   );
 }

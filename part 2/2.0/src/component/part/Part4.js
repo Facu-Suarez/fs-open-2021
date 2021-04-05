@@ -1,6 +1,6 @@
 import React from "react";
 
-const Part1 = ({course}) => {
+const Part4 = ({course}) => {
   //console.log(course)
   return (
     <div> 
@@ -10,4 +10,4 @@ const Part1 = ({course}) => {
   );
 };
 
-export default Part1;
+export default Part4;

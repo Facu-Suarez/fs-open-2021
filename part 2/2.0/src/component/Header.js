@@ -1,11 +1,11 @@
 import React from 'react'
 
 
-const Header = (props) => {
-    console.log(props)
+const Header = () => {
+    
     return (
         <div>
-        <h1>{props.course.name}</h1>
+            <h1>Web developer curriculum</h1>
         </div>
     ) 
 };
