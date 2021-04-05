@@ -1,9 +1,7 @@
 import React from "react";
 import Header from './component/Header';
 import Content from './component/Content';
-import Content2 from "./component/Content2";
-import Total from './component/Total';
-import Total2 from "./component/Total2";
+
 
 const Course = () =>{
   const course = [
@@ -55,9 +53,6 @@ const Course = () =>{
     <div>
       <Header course={course}/>
       <Content course={course}/>
-      <Total course={course[0]}/>
-      <Content2 course={course}/>
-      <Total2 course={course[1]}/>
     </div>
   )
 }
