@@ -1,19 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Filter from "./component/Filter";
-
-
+import { create } from "./services/create";
+import { getData } from "./services/getData";
 
 const App = () => {
-  const [persons, setPerson] = useState([
-    { name: "Arto Hellas", num: "040-123456", id: 1 },
-    { name: "Ada Lovelace", num: "39-44-5323523", id: 2 },
-    { name: "Dan Abramov", num: "12-43-234345", id: 3 },
-    { name: "Mary Poppendieck", num: "39-23-6423122", id: 4 },
-  ]);
-  console.log(persons);
+  const [persons, setPerson] = useState([]);
   const [newName, setNewName] = useState("");
   const [newNum, setNewNum] = useState("");
   const [search, setSearch] = useState("");
+
+  //effect
+  useEffect(() => {
+    getData().then((initial) => setPerson(initial));
+  }, []);
 
   //control
   const handleNameChange = (event) => {
@@ -34,7 +33,7 @@ const App = () => {
       num: newNum,
       id: persons.length + 1,
     };
-    setPerson([...persons, obj]);
+    create(obj).then((response) => setPerson([...persons, response]));
     setNewName("");
     setNewNum("");
   };

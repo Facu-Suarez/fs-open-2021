@@ -5,7 +5,7 @@ import Header from "./component/Header";
 import Total from "./component/Total";
 
 const App = () => {
-  const course ={
+  const course ={ 
     name: "Half Stack application development",
     part:[
       {
