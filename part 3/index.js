@@ -1,6 +1,6 @@
 //defini tus constantes
 const express = require("express");
-const cors = require("cors")
+const cors = require("cors");
 const morgan = require("morgan");
 const app = express();
 //json
@@ -28,11 +28,9 @@ let persons = [
 ];
 
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 
-
-
-app.get("/",morgan('dev'), (req, res) => {
+app.get("/", morgan("dev"), (req, res) => {
   res.send("<h1>Welcome</h1>");
 });
 
@@ -59,8 +57,7 @@ app.delete("/api/persons/:id", (req, res) => {
 
 let generateId = () => Math.round(Math.random() * 999);
 
-app.post("/api/persons",morgan('dev'),(req, res) => {
-  
+app.post("/api/persons", morgan("dev"), (req, res) => {
   const body = req.body;
   let search = persons.some((n) => {
     return n.name.toLowerCase() === body.name.toLowerCase();
@@ -82,7 +79,7 @@ app.post("/api/persons",morgan('dev'),(req, res) => {
     num: body.num,
     id: generateId(),
   };
-  console.log(body)
+  console.log(body);
   persons = persons.concat(person);
   res.json(person);
 });
@@ -96,7 +93,7 @@ app.get("/api/info", (req, res) => {
 });
 
 //instancia donde se escucha
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`server running on port ${PORT}`);
 });
